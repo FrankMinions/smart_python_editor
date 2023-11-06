@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible'>
+    <title>Smart Python Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/blackboard.css"/>
+    <link rel="stylesheet" href="index.css"/>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.21.0/full/pyodide.js"></script>
+</head>
+
+<body scroll="no">
+    <div class="container-fluid bg-light">
+        <section class="header text-center p-5"><h1 class="title">Smart Python Editor</h1><h2 class="subtitle">Support for code generation in both Chinese (中文) and English</h2></section>
+        <div class="chatbox">
+            <label id="label-for-prompt" for="prompt"><span style="color:red;">*</span>Instruction (Please enter your prompt here. If there is no matching input, please directly press the Enter or click the icon on the right):</label><div></div>
+            <input id="prompt" onkeyup="if(event.keyCode==13) {chat()}"><button type="button" id="cursor-btn" class="cursor-btn" onclick="chat()"></button>
+            <label id="label-for-prompt-input" for="prompt-input">Optional input (Please enter the input that matches your prompt here and press Enter or click the icon on the right):</label><div></div>
+            <input id="prompt-input" onkeyup="if(event.keyCode==13) {chat()}">
+        </div>
+        <div class="content">
+            <div><textarea id="code" name="code"></textarea></div>
+            <div><textarea readonly id="output" name="code"></textarea></div>
+            <div><button type="button" class="run-btn btn-success" onclick="evaluatePython()"><h5>Run</h5></button></div>
+            <div><button type="button" class="clear-btn btn-success" onclick="clearHistory()"><h5>Clear History</h5></button></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"
+        integrity="sha512-XMlgZzPyVXf1I/wbGnofk1Hfdx+zAWyZjh6c21yGo/k1zNC4Ve6xcQnTDTCHrjFGsOrVicJsBURLYktVEu/8vQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"
+        integrity="sha512-/mavDpedrvPG/0Grj2Ughxte/fsm42ZmZWWpHz1jCbzd5ECv8CB7PomGtw0NAnhHmE/lkDFkRMupjoohbKNA1Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src='main.js'></script>
+</body>
+</html>
