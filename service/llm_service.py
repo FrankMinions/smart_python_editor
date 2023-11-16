@@ -46,9 +46,9 @@ prompt_template = template.template
 response_split = template.response_split
 
 generation_config = dict(
-    temperature=0.7,
-    top_k=5,
-    top_p=1.0,
+    temperature=0.5,
+    top_k=0,
+    top_p=0.8,
     do_sample=True,
     repetition_penalty=1.05,
     max_new_tokens=1024
