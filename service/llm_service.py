@@ -7,7 +7,7 @@ from flask_cors import cross_origin
 from transformers import LlamaTokenizer, LlamaForCausalLM
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--model_name_or_path', default='frankminors123/Chinese-CodeLlama-7B-SFT', type=str)
+parser.add_argument('--model_name_or_path', default='frankminors123/Chinese-CodeLlama-7B-SFT-V2', type=str)
 parser.add_argument('--gpus', default="0, 1, 2, 3", type=str)
 parser.add_argument('--only_cpu', default=False, help='only use CPU for inference')
 args = parser.parse_args()
